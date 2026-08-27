@@ -1,0 +1,261 @@
+id_pedido,cliente,zona,fecha_creacion,fecha_entrega,estado,repartidor,metodo_pago,monto
+1,Ivan Rojas,Centro,2026-08-21 16:43:20,,pendiente,,efectivo,23581.65
+2,Diana Torres,Chapinero,2026-07-28 06:15:20,2026-07-28 06:41:20,entregado,Bici-01 Andres,app,47019.51
+3,Ana Gomez,Chapinero,2026-08-02 13:06:20,,en_camino,Moto-03 Daniela,app,28503.53
+4,Paula Leon,Sur,2026-08-24 12:20:20,2026-08-24 12:55:20,entregado,Bici-01 Andres,app,35089.83
+5,Fernanda Diaz,Centro,2026-08-24 08:51:20,2026-08-24 09:19:20,entregado,Moto-01 Felipe,efectivo,91448.68
+6,Mateo Nunez,Centro,2026-07-27 19:36:20,2026-07-27 20:49:20,entregado,Bici-01 Andres,app,33955.23
+7,Diana Torres,Occidente,2026-08-17 00:00:20,,pendiente,,app,36333.8
+8,Valentina Cano,Centro,2026-08-21 04:56:20,2026-08-21 05:40:20,entregado,Bici-01 Andres,efectivo,70479.46
+9,Esteban Lopez,Sur,2026-08-05 18:23:20,,cancelado,,tarjeta,35071.81
+10,Mateo Nunez,Sur,2026-08-21 12:38:20,2026-08-21 13:02:20,entregado,Moto-01 Felipe,tarjeta,29389.08
+11,Ivan Rojas,Chapinero,2026-08-20 07:38:20,2026-08-20 09:04:20,entregado,Moto-01 Felipe,efectivo,50367.6
+12,Ivan Rojas,Norte,2026-08-02 14:10:20,2026-08-02 14:59:20,entregado,Moto-02 Sara,efectivo,78818.8
+13,Laura Vega,Chapinero,2026-07-26 14:35:20,,en_camino,Moto-02 Sara,efectivo,66401.41
+14,Fernanda Diaz,Centro,2026-08-21 20:27:20,2026-08-21 21:15:20,entregado,Bici-03 Nicolas,efectivo,73834.09
+15,Natalia Rios,Chapinero,2026-08-26 14:14:20,2026-08-26 15:34:20,entregado,Bici-02 Camila,tarjeta,30203.62
+16,Esteban Lopez,Norte,2026-08-15 01:21:20,,pendiente,,efectivo,64078.02
+17,Natalia Rios,Norte,2026-08-23 13:34:20,2026-08-23 14:56:20,entregado,Moto-02 Sara,tarjeta,61458.74
+18,Esteban Lopez,Norte,2026-08-04 00:54:20,,cancelado,,app,85437.44
+19,Esteban Lopez,Centro,2026-08-26 18:27:20,,en_camino,Moto-02 Sara,tarjeta,48085.52
+20,Sofia Marin,Centro,2026-07-23 17:50:20,,cancelado,,efectivo,54137.58
+21,Sofia Marin,Centro,2026-07-28 10:31:20,2026-07-28 11:06:20,entregado,Moto-01 Felipe,app,28509.62
+22,Ana Gomez,Chapinero,2026-08-17 03:26:20,,cancelado,,app,38904.95
+23,Kevin Silva,Centro,2026-07-24 11:34:20,,pendiente,,efectivo,16807.79
+24,Ricardo Salas,Norte,2026-08-18 10:00:20,,cancelado,,efectivo,93172.71
+25,Ricardo Salas,Sur,2026-08-16 20:09:20,2026-08-16 21:18:20,entregado,Bici-03 Nicolas,app,25705.54
+26,Kevin Silva,Sur,2026-08-02 05:38:20,,cancelado,,tarjeta,94597.4
+27,Paula Leon,Chapinero,2026-08-22 04:08:20,2026-08-22 05:06:20,entregado,Bici-01 Andres,efectivo,32576.17
+28,Valentina Cano,Sur,2026-07-24 13:16:20,2026-07-24 13:38:20,entregado,Moto-03 Daniela,efectivo,12596.84
+29,Laura Vega,Norte,2026-08-03 00:21:20,,pendiente,,efectivo,54674.96
+30,Tomas Beltran,Sur,2026-08-05 06:28:20,2026-08-05 07:56:20,entregado,Bici-03 Nicolas,efectivo,72038.26
+31,Oscar Parra,Occidente,2026-08-14 02:34:20,,en_camino,Moto-03 Daniela,efectivo,19829.04
+32,Paula Leon,Occidente,2026-08-12 05:07:20,2026-08-12 05:34:20,entregado,Moto-03 Daniela,app,16496.21
+33,Esteban Lopez,Centro,2026-07-26 08:30:20,2026-07-26 09:42:20,entregado,Bici-03 Nicolas,efectivo,27901.98
+34,Paula Leon,Centro,2026-07-29 23:24:20,2026-07-30 00:35:20,entregado,Bici-01 Andres,efectivo,84582.33
+35,Ana Gomez,Chapinero,2026-08-17 15:24:20,,pendiente,,efectivo,88888.46
+36,Ricardo Salas,Occidente,2026-08-03 08:29:20,,en_camino,Bici-01 Andres,efectivo,83765.98
+37,Julia Pena,Occidente,2026-07-31 02:07:20,2026-07-31 03:33:20,entregado,Moto-03 Daniela,tarjeta,35675.69
+38,Helena Castro,Sur,2026-08-22 17:14:20,2026-08-22 18:43:20,entregado,Bici-01 Andres,tarjeta,30069.17
+39,Carlos Ruiz,Centro,2026-08-26 01:55:20,2026-08-26 03:17:20,entregado,Bici-03 Nicolas,efectivo,60486.74
+40,Diana Torres,Chapinero,2026-07-30 18:15:20,,pendiente,,efectivo,17687.27
+41,Natalia Rios,Sur,2026-07-26 16:31:20,2026-07-26 17:17:20,entregado,Bici-03 Nicolas,efectivo,90152.48
+42,Diana Torres,Chapinero,2026-08-18 22:38:20,2026-08-18 23:59:20,entregado,Bici-03 Nicolas,tarjeta,66561.97
+43,Laura Vega,Sur,2026-08-06 23:51:20,,cancelado,,efectivo,34046.0
+44,Paula Leon,Centro,2026-07-29 13:15:20,2026-07-29 13:31:20,entregado,Bici-01 Andres,tarjeta,89108.52
+45,Esteban Lopez,Chapinero,2026-08-13 10:52:20,2026-08-13 11:40:20,entregado,Bici-03 Nicolas,efectivo,56623.66
+46,Ivan Rojas,Norte,2026-07-29 14:58:20,,cancelado,,tarjeta,35653.95
+47,Wilson Prieto,Centro,2026-08-12 12:54:20,2026-08-12 14:19:20,entregado,Moto-03 Daniela,app,55902.08
+48,Fernanda Diaz,Norte,2026-08-06 05:18:20,,cancelado,,tarjeta,21580.58
+49,Julia Pena,Sur,2026-07-28 11:12:20,2026-07-28 12:10:20,entregado,Moto-03 Daniela,tarjeta,62200.88
+50,Sofia Marin,Centro,2026-08-01 20:40:20,2026-08-01 21:06:20,entregado,Bici-01 Andres,tarjeta,32843.06
+51,Carlos Ruiz,Centro,2026-08-21 11:06:20,2026-08-21 11:54:20,entregado,Bici-02 Camila,efectivo,39685.19
+52,Oscar Parra,Chapinero,2026-07-30 22:47:20,2026-07-30 23:21:20,entregado,Bici-01 Andres,app,12802.59
+53,Valentina Cano,Centro,2026-08-17 10:13:20,,pendiente,,app,24291.78
+54,Carlos Ruiz,Centro,2026-07-29 09:30:20,,pendiente,,tarjeta,29436.35
+55,Tomas Beltran,Centro,2026-08-03 22:51:20,2026-08-03 23:25:20,entregado,Moto-03 Daniela,tarjeta,92828.47
+56,Oscar Parra,Sur,2026-08-03 08:52:20,2026-08-03 09:59:20,entregado,Moto-01 Felipe,efectivo,26886.94
+57,Julia Pena,Sur,2026-08-23 02:01:20,2026-08-23 03:04:20,entregado,Bici-01 Andres,efectivo,77352.08
+58,Helena Castro,Sur,2026-07-25 08:35:20,2026-07-25 09:18:20,entregado,Bici-02 Camila,tarjeta,41021.65
+59,Laura Vega,Occidente,2026-07-24 16:08:20,2026-07-24 17:07:20,entregado,Moto-01 Felipe,tarjeta,83741.29
+60,Laura Vega,Chapinero,2026-08-21 18:58:20,2026-08-21 19:35:20,entregado,Moto-01 Felipe,efectivo,21573.37
+61,Carlos Ruiz,Centro,2026-08-19 00:27:20,,cancelado,,efectivo,61515.41
+62,Oscar Parra,Centro,2026-08-08 07:52:20,2026-08-08 08:56:20,entregado,Bici-01 Andres,app,93691.58
+63,Oscar Parra,Norte,2026-08-18 20:05:20,,en_camino,Bici-03 Nicolas,efectivo,55153.39
+64,Mateo Nunez,Sur,2026-08-23 20:31:20,2026-08-23 21:28:20,entregado,Moto-03 Daniela,tarjeta,17807.83
+65,Kevin Silva,Norte,2026-08-20 22:57:20,2026-08-20 23:53:20,entregado,Moto-02 Sara,app,37670.63
+66,Fernanda Diaz,Chapinero,2026-08-10 21:49:20,2026-08-10 22:26:20,entregado,Moto-02 Sara,efectivo,46897.05
+67,Tomas Beltran,Occidente,2026-08-20 14:36:20,2026-08-20 15:46:20,entregado,Bici-02 Camila,efectivo,37221.62
+68,Paula Leon,Centro,2026-08-18 23:47:20,2026-08-19 01:07:20,entregado,Bici-02 Camila,tarjeta,48699.26
+69,Diana Torres,Sur,2026-08-14 03:08:20,2026-08-14 04:05:20,entregado,Moto-03 Daniela,tarjeta,54782.52
+70,Kevin Silva,Sur,2026-07-27 20:18:20,2026-07-27 20:36:20,entregado,Bici-02 Camila,efectivo,78944.72
+71,Wilson Prieto,Occidente,2026-07-25 16:46:20,,en_camino,Moto-03 Daniela,efectivo,49799.54
+72,Ricardo Salas,Occidente,2026-08-18 19:05:20,,en_camino,Moto-03 Daniela,tarjeta,32250.71
+73,Oscar Parra,Norte,2026-08-23 21:22:20,,pendiente,,efectivo,26598.59
+74,Tomas Beltran,Norte,2026-08-24 06:25:20,2026-08-24 07:38:20,entregado,Bici-01 Andres,efectivo,88150.01
+75,Tomas Beltran,Chapinero,2026-07-29 15:56:20,2026-07-29 17:15:20,entregado,Moto-02 Sara,app,38335.73
+76,Paula Leon,Chapinero,2026-08-12 00:24:20,2026-08-12 01:36:20,entregado,Moto-02 Sara,efectivo,73723.4
+77,Sofia Marin,Centro,2026-08-04 09:24:20,2026-08-04 10:35:20,entregado,Moto-01 Felipe,tarjeta,64020.12
+78,Julia Pena,Sur,2026-07-27 02:55:20,2026-07-27 03:20:20,entregado,Bici-03 Nicolas,tarjeta,38535.89
+79,Fernanda Diaz,Occidente,2026-07-29 21:26:20,,en_camino,Moto-02 Sara,app,29758.09
+80,Oscar Parra,Occidente,2026-08-11 03:30:20,2026-08-11 04:34:20,entregado,Moto-02 Sara,efectivo,29167.25
+81,Valentina Cano,Norte,2026-08-19 04:16:20,,cancelado,,tarjeta,51589.32
+82,Oscar Parra,Occidente,2026-08-08 14:30:20,,en_camino,Bici-03 Nicolas,app,74043.8
+83,Ivan Rojas,Occidente,2026-08-20 01:12:20,2026-08-20 02:16:20,entregado,Bici-01 Andres,tarjeta,48174.39
+84,Gabriel Mora,Occidente,2026-08-07 21:26:20,2026-08-07 22:49:20,entregado,Bici-03 Nicolas,tarjeta,88321.95
+85,Valentina Cano,Chapinero,2026-07-24 19:45:20,,cancelado,,app,14249.47
+86,Gabriel Mora,Occidente,2026-08-21 20:21:20,2026-08-21 21:03:20,entregado,Moto-01 Felipe,efectivo,33592.97
+87,Julia Pena,Occidente,2026-08-13 06:57:20,2026-08-13 08:12:20,entregado,Bici-01 Andres,tarjeta,32938.54
+88,Mateo Nunez,Norte,2026-07-24 11:28:20,2026-07-24 11:48:20,entregado,Moto-03 Daniela,efectivo,65961.96
+89,Helena Castro,Sur,2026-08-26 22:07:20,,pendiente,,efectivo,63570.86
+90,Valentina Cano,Norte,2026-08-03 10:51:20,,pendiente,,efectivo,50597.82
+91,Wilson Prieto,Sur,2026-08-04 06:11:20,2026-08-04 06:40:20,entregado,Moto-03 Daniela,app,91989.98
+92,Valentina Cano,Norte,2026-07-31 01:10:20,,cancelado,,efectivo,89097.63
+93,Natalia Rios,Occidente,2026-08-18 19:13:20,2026-08-18 19:59:20,entregado,Bici-03 Nicolas,app,28461.37
+94,Wilson Prieto,Centro,2026-07-28 05:36:20,2026-07-28 05:56:20,entregado,Bici-03 Nicolas,efectivo,78086.86
+95,Diana Torres,Centro,2026-08-08 09:32:20,2026-08-08 10:40:20,entregado,Bici-01 Andres,app,65746.09
+96,Paula Leon,Centro,2026-08-14 21:43:20,,pendiente,,app,24698.27
+97,Wilson Prieto,Centro,2026-07-31 14:41:20,2026-07-31 15:51:20,entregado,Moto-02 Sara,app,76295.24
+98,Ivan Rojas,Centro,2026-08-25 20:46:20,2026-08-25 21:32:20,entregado,Moto-02 Sara,efectivo,35151.04
+99,Natalia Rios,Chapinero,2026-08-26 18:01:20,2026-08-26 18:39:20,entregado,Moto-01 Felipe,tarjeta,14382.1
+100,Laura Vega,Centro,2026-08-14 18:50:20,,en_camino,Moto-03 Daniela,tarjeta,85066.56
+101,Helena Castro,Chapinero,2026-08-05 04:03:20,2026-08-05 05:20:20,entregado,Moto-02 Sara,efectivo,32032.55
+102,Ricardo Salas,Occidente,2026-08-17 20:42:20,2026-08-17 21:34:20,entregado,Bici-01 Andres,tarjeta,77813.43
+103,Kevin Silva,Sur,2026-08-02 16:20:20,2026-08-02 17:45:20,entregado,Moto-02 Sara,app,60269.11
+104,Laura Vega,Chapinero,2026-08-16 18:12:20,2026-08-16 19:06:20,entregado,Moto-01 Felipe,tarjeta,70336.96
+105,Laura Vega,Sur,2026-08-04 00:53:20,,en_camino,Moto-03 Daniela,efectivo,73659.13
+106,Julia Pena,Occidente,2026-08-01 00:31:20,,en_camino,Bici-03 Nicolas,app,60935.71
+107,Helena Castro,Norte,2026-08-19 18:09:20,,en_camino,Bici-02 Camila,tarjeta,30881.1
+108,Fernanda Diaz,Chapinero,2026-08-06 08:27:20,,pendiente,,tarjeta,15777.8
+109,Ricardo Salas,Sur,2026-07-26 01:51:20,2026-07-26 02:42:20,entregado,Bici-03 Nicolas,efectivo,84435.74
+110,Gabriel Mora,Centro,2026-08-13 23:00:20,2026-08-13 23:29:20,entregado,Moto-02 Sara,efectivo,32955.71
+111,Valentina Cano,Norte,2026-07-26 13:40:20,2026-07-26 14:14:20,entregado,Bici-02 Camila,app,68975.43
+112,Ivan Rojas,Norte,2026-08-18 05:04:20,,cancelado,,efectivo,58320.06
+113,Ivan Rojas,Chapinero,2026-08-11 12:52:20,2026-08-11 13:45:20,entregado,Moto-02 Sara,app,43571.38
+114,Valentina Cano,Centro,2026-08-19 09:07:20,,cancelado,,app,16999.12
+115,Helena Castro,Sur,2026-08-26 06:40:20,,pendiente,,tarjeta,66815.54
+116,Diana Torres,Chapinero,2026-07-30 17:50:20,,en_camino,Moto-02 Sara,efectivo,12222.08
+117,Carlos Ruiz,Centro,2026-08-23 23:16:20,2026-08-24 00:29:20,entregado,Moto-01 Felipe,efectivo,35912.71
+118,Valentina Cano,Centro,2026-07-26 20:02:20,2026-07-26 21:11:20,entregado,Bici-02 Camila,app,78724.17
+119,Julia Pena,Sur,2026-07-28 19:39:20,2026-07-28 20:33:20,entregado,Bici-02 Camila,efectivo,17927.02
+120,Kevin Silva,Chapinero,2026-08-19 16:14:20,2026-08-19 17:07:20,entregado,Moto-03 Daniela,tarjeta,22321.35
+121,Sofia Marin,Centro,2026-08-24 10:35:20,2026-08-24 10:55:20,entregado,Bici-01 Andres,app,52985.0
+122,Julia Pena,Chapinero,2026-08-12 06:11:20,2026-08-12 07:39:20,entregado,Moto-03 Daniela,efectivo,19580.13
+123,Valentina Cano,Centro,2026-08-19 07:35:20,,cancelado,,efectivo,75338.05
+124,Julia Pena,Occidente,2026-07-31 13:39:20,2026-07-31 14:56:20,entregado,Moto-02 Sara,efectivo,94746.47
+125,Laura Vega,Occidente,2026-07-27 17:57:20,2026-07-27 18:54:20,entregado,Bici-02 Camila,tarjeta,67621.08
+126,Natalia Rios,Centro,2026-08-11 07:55:20,2026-08-11 08:50:20,entregado,Bici-01 Andres,app,15045.86
+127,Sofia Marin,Occidente,2026-08-04 01:59:20,2026-08-04 03:13:20,entregado,Bici-03 Nicolas,efectivo,66585.81
+128,Mateo Nunez,Chapinero,2026-08-11 09:40:20,,pendiente,,app,74784.78
+129,Helena Castro,Norte,2026-08-21 01:24:20,2026-08-21 02:35:20,entregado,Moto-01 Felipe,tarjeta,57585.23
+130,Wilson Prieto,Norte,2026-08-24 08:58:20,2026-08-24 10:23:20,entregado,Moto-01 Felipe,efectivo,70911.97
+131,Ivan Rojas,Norte,2026-07-24 05:14:20,2026-07-24 05:48:20,entregado,Bici-01 Andres,efectivo,50300.18
+132,Sofia Marin,Centro,2026-08-15 06:39:20,,cancelado,,app,34694.27
+133,Paula Leon,Sur,2026-08-14 13:19:20,,cancelado,,app,24005.28
+134,Fernanda Diaz,Chapinero,2026-08-01 06:29:20,,cancelado,,efectivo,34928.53
+135,Julia Pena,Chapinero,2026-08-11 11:31:20,2026-08-11 13:01:20,entregado,Moto-01 Felipe,efectivo,35475.64
+136,Fernanda Diaz,Occidente,2026-08-18 23:43:20,,cancelado,,tarjeta,56702.19
+137,Natalia Rios,Chapinero,2026-08-08 07:16:20,2026-08-08 08:01:20,entregado,Bici-02 Camila,tarjeta,89426.74
+138,Carlos Ruiz,Occidente,2026-08-18 14:51:20,2026-08-18 15:54:20,entregado,Moto-03 Daniela,tarjeta,73810.53
+139,Ricardo Salas,Sur,2026-08-10 04:00:20,,cancelado,,efectivo,22478.44
+140,Paula Leon,Norte,2026-08-19 10:56:20,2026-08-19 11:12:20,entregado,Moto-02 Sara,efectivo,55653.94
+141,Diana Torres,Sur,2026-08-25 11:24:20,,pendiente,,tarjeta,76866.6
+142,Diana Torres,Occidente,2026-08-04 15:46:20,2026-08-04 16:49:20,entregado,Bici-03 Nicolas,tarjeta,82744.33
+143,Tomas Beltran,Occidente,2026-08-07 00:10:20,2026-08-07 01:01:20,entregado,Bici-02 Camila,efectivo,63249.14
+144,Esteban Lopez,Occidente,2026-08-02 22:46:20,2026-08-02 23:57:20,entregado,Bici-01 Andres,app,70422.94
+145,Carlos Ruiz,Norte,2026-07-31 04:00:20,2026-07-31 05:00:20,entregado,Moto-01 Felipe,tarjeta,78079.91
+146,Sofia Marin,Sur,2026-08-09 15:43:20,2026-08-09 16:19:20,entregado,Bici-02 Camila,tarjeta,58972.03
+147,Wilson Prieto,Occidente,2026-07-31 13:31:20,,pendiente,,app,31988.87
+148,Julia Pena,Occidente,2026-08-19 03:15:20,,pendiente,,tarjeta,33192.12
+149,Kevin Silva,Occidente,2026-07-24 00:33:20,2026-07-24 01:44:20,entregado,Bici-01 Andres,app,57367.65
+150,Oscar Parra,Centro,2026-08-08 07:44:20,,cancelado,,app,32758.15
+151,Ricardo Salas,Occidente,2026-08-06 08:17:20,,en_camino,Bici-03 Nicolas,efectivo,31688.07
+152,Ana Gomez,Centro,2026-08-08 22:22:20,2026-08-08 23:49:20,entregado,Bici-01 Andres,app,44851.88
+153,Wilson Prieto,Norte,2026-08-23 19:22:20,2026-08-23 20:06:20,entregado,Moto-01 Felipe,app,53228.36
+154,Helena Castro,Sur,2026-08-20 05:22:20,2026-08-20 05:54:20,entregado,Moto-03 Daniela,app,32802.02
+155,Kevin Silva,Norte,2026-08-21 04:30:20,,pendiente,,tarjeta,14769.26
+156,Kevin Silva,Norte,2026-08-09 04:49:20,2026-08-09 05:29:20,entregado,Bici-02 Camila,tarjeta,74040.91
+157,Sofia Marin,Centro,2026-07-29 14:39:20,2026-07-29 15:26:20,entregado,Bici-02 Camila,app,87819.42
+158,Laura Vega,Centro,2026-08-14 12:36:20,,cancelado,,efectivo,50871.51
+159,Natalia Rios,Sur,2026-07-27 00:32:20,,pendiente,,app,42359.33
+160,Esteban Lopez,Chapinero,2026-08-10 13:16:20,,pendiente,,tarjeta,42592.61
+161,Natalia Rios,Chapinero,2026-08-26 16:25:20,2026-08-26 17:09:20,entregado,Bici-01 Andres,app,90044.23
+162,Laura Vega,Chapinero,2026-08-14 01:16:20,,pendiente,,app,30373.48
+163,Kevin Silva,Occidente,2026-07-26 11:20:20,2026-07-26 11:40:20,entregado,Bici-02 Camila,app,45888.56
+164,Esteban Lopez,Occidente,2026-07-25 06:56:20,2026-07-25 07:28:20,entregado,Bici-03 Nicolas,efectivo,31488.4
+165,Oscar Parra,Chapinero,2026-08-10 06:48:20,2026-08-10 07:56:20,entregado,Bici-02 Camila,app,73608.33
+166,Wilson Prieto,Occidente,2026-08-22 09:38:20,,pendiente,,tarjeta,89941.4
+167,Helena Castro,Centro,2026-08-05 07:51:20,,pendiente,,tarjeta,48909.76
+168,Mateo Nunez,Norte,2026-08-03 08:11:20,2026-08-03 09:11:20,entregado,Moto-03 Daniela,app,86840.79
+169,Esteban Lopez,Sur,2026-07-26 08:26:20,2026-07-26 08:43:20,entregado,Bici-02 Camila,tarjeta,19608.89
+170,Fernanda Diaz,Sur,2026-07-25 21:32:20,2026-07-25 22:13:20,entregado,Bici-03 Nicolas,app,29032.06
+171,Laura Vega,Sur,2026-08-19 06:47:20,,en_camino,Bici-03 Nicolas,efectivo,77457.43
+172,Fernanda Diaz,Sur,2026-07-23 17:23:20,,en_camino,Bici-02 Camila,app,32804.3
+173,Fernanda Diaz,Norte,2026-07-28 14:22:20,2026-07-28 15:52:20,entregado,Bici-02 Camila,efectivo,41734.11
+174,Carlos Ruiz,Centro,2026-08-07 07:56:20,,pendiente,,efectivo,73562.6
+175,Ricardo Salas,Norte,2026-08-16 12:55:20,,pendiente,,tarjeta,76575.41
+176,Sofia Marin,Occidente,2026-08-15 22:53:20,2026-08-16 00:14:20,entregado,Bici-01 Andres,efectivo,90469.5
+177,Carlos Ruiz,Norte,2026-08-06 07:45:20,2026-08-06 08:13:20,entregado,Moto-02 Sara,tarjeta,82325.78
+178,Diana Torres,Occidente,2026-08-14 21:48:20,2026-08-14 22:11:20,entregado,Bici-02 Camila,efectivo,38735.28
+179,Tomas Beltran,Chapinero,2026-07-29 08:08:20,,en_camino,Bici-03 Nicolas,app,38990.39
+180,Wilson Prieto,Chapinero,2026-08-16 17:48:20,,en_camino,Moto-03 Daniela,tarjeta,20231.81
+181,Helena Castro,Chapinero,2026-07-28 19:16:20,2026-07-28 20:23:20,entregado,Bici-02 Camila,tarjeta,49479.06
+182,Oscar Parra,Occidente,2026-08-08 00:30:20,2026-08-08 01:25:20,entregado,Moto-02 Sara,app,19892.12
+183,Ricardo Salas,Sur,2026-08-22 20:46:20,,en_camino,Bici-01 Andres,efectivo,19571.66
+184,Fernanda Diaz,Centro,2026-07-27 20:07:20,2026-07-27 21:33:20,entregado,Bici-03 Nicolas,app,16978.42
+185,Mateo Nunez,Occidente,2026-08-07 14:21:20,2026-08-07 14:42:20,entregado,Moto-02 Sara,app,90113.78
+186,Esteban Lopez,Centro,2026-08-05 16:28:20,2026-08-05 17:44:20,entregado,Bici-02 Camila,app,54115.24
+187,Tomas Beltran,Centro,2026-08-02 19:14:20,2026-08-02 20:42:20,entregado,Moto-01 Felipe,tarjeta,21535.48
+188,Wilson Prieto,Chapinero,2026-08-02 21:19:20,2026-08-02 21:37:20,entregado,Bici-03 Nicolas,app,68023.07
+189,Ana Gomez,Centro,2026-08-20 07:29:20,,cancelado,,efectivo,34681.44
+190,Mateo Nunez,Centro,2026-08-27 07:03:20,2026-08-27 08:30:20,entregado,Bici-02 Camila,efectivo,27056.66
+191,Ana Gomez,Sur,2026-08-22 12:17:20,2026-08-22 13:20:20,entregado,Bici-02 Camila,efectivo,73927.28
+192,Mateo Nunez,Sur,2026-08-11 16:52:20,2026-08-11 17:17:20,entregado,Bici-03 Nicolas,tarjeta,71892.47
+193,Carlos Ruiz,Chapinero,2026-07-25 23:45:20,,en_camino,Moto-02 Sara,app,18771.27
+194,Paula Leon,Chapinero,2026-08-22 17:18:20,2026-08-22 17:47:20,entregado,Bici-03 Nicolas,tarjeta,34672.85
+195,Valentina Cano,Centro,2026-08-08 07:19:20,2026-08-08 07:39:20,entregado,Moto-01 Felipe,tarjeta,55735.53
+196,Carlos Ruiz,Chapinero,2026-08-02 15:09:20,2026-08-02 15:41:20,entregado,Bici-02 Camila,efectivo,28967.12
+197,Esteban Lopez,Centro,2026-08-27 08:58:20,,en_camino,Moto-02 Sara,efectivo,53282.98
+198,Ivan Rojas,Chapinero,2026-07-31 14:12:20,,pendiente,,app,58374.06
+199,Natalia Rios,Norte,2026-08-22 23:59:20,2026-08-23 01:12:20,entregado,Bici-01 Andres,app,15511.09
+200,Oscar Parra,Chapinero,2026-07-27 03:20:20,2026-07-27 04:28:20,entregado,Moto-03 Daniela,app,45567.1
+201,Laura Vega,Norte,2026-08-05 18:31:20,,pendiente,,efectivo,78509.74
+202,Diana Torres,Centro,2026-08-20 17:27:20,2026-08-20 18:37:20,entregado,Bici-02 Camila,tarjeta,82092.2
+203,Natalia Rios,Norte,2026-08-19 09:30:20,2026-08-19 10:27:20,entregado,Bici-02 Camila,tarjeta,73901.8
+204,Sofia Marin,Norte,2026-07-31 05:56:20,,pendiente,,app,28094.01
+205,Ivan Rojas,Sur,2026-08-08 11:54:20,2026-08-08 12:31:20,entregado,Bici-02 Camila,efectivo,24154.87
+206,Gabriel Mora,Norte,2026-08-20 00:16:20,,en_camino,Bici-03 Nicolas,app,53011.71
+207,Wilson Prieto,Chapinero,2026-08-27 04:17:20,2026-08-27 05:12:20,entregado,Moto-03 Daniela,tarjeta,83732.49
+208,Paula Leon,Occidente,2026-07-30 11:11:20,2026-07-30 12:41:20,entregado,Moto-01 Felipe,app,37134.1
+209,Kevin Silva,Norte,2026-07-26 03:39:20,2026-07-26 04:41:20,entregado,Bici-01 Andres,tarjeta,49508.85
+210,Wilson Prieto,Norte,2026-08-05 15:51:20,,pendiente,,app,54086.63
+211,Paula Leon,Norte,2026-08-13 15:42:20,2026-08-13 16:57:20,entregado,Moto-01 Felipe,app,66102.51
+212,Paula Leon,Norte,2026-08-15 09:55:20,,en_camino,Moto-01 Felipe,efectivo,79310.25
+213,Carlos Ruiz,Sur,2026-08-25 02:31:20,,pendiente,,efectivo,70732.6
+214,Gabriel Mora,Chapinero,2026-08-12 14:15:20,2026-08-12 15:19:20,entregado,Moto-01 Felipe,tarjeta,42946.71
+215,Carlos Ruiz,Chapinero,2026-08-11 04:47:20,2026-08-11 05:44:20,entregado,Bici-01 Andres,app,65726.34
+216,Kevin Silva,Occidente,2026-07-27 21:31:20,2026-07-27 22:05:20,entregado,Moto-03 Daniela,tarjeta,72069.89
+217,Mateo Nunez,Sur,2026-08-07 18:25:20,,pendiente,,tarjeta,92318.81
+218,Wilson Prieto,Sur,2026-08-24 09:13:20,2026-08-24 10:39:20,entregado,Moto-01 Felipe,app,89854.18
+219,Fernanda Diaz,Centro,2026-08-09 17:44:20,2026-08-09 19:06:20,entregado,Moto-03 Daniela,app,70334.96
+220,Sofia Marin,Occidente,2026-07-27 20:22:20,2026-07-27 21:00:20,entregado,Moto-01 Felipe,tarjeta,13513.13
+221,Helena Castro,Occidente,2026-08-02 08:15:20,2026-08-02 08:39:20,entregado,Bici-02 Camila,efectivo,94998.06
+222,Sofia Marin,Norte,2026-08-06 01:23:20,2026-08-06 01:42:20,entregado,Bici-03 Nicolas,app,81314.95
+223,Fernanda Diaz,Chapinero,2026-08-22 17:18:20,2026-08-22 17:56:20,entregado,Bici-02 Camila,app,43267.75
+224,Paula Leon,Sur,2026-08-24 03:04:20,2026-08-24 03:49:20,entregado,Moto-03 Daniela,efectivo,46101.26
+225,Ivan Rojas,Occidente,2026-08-12 19:29:20,2026-08-12 20:08:20,entregado,Moto-02 Sara,app,31850.99
+226,Paula Leon,Chapinero,2026-08-09 08:04:20,2026-08-09 09:23:20,entregado,Moto-02 Sara,tarjeta,75863.4
+227,Helena Castro,Sur,2026-08-16 14:25:20,2026-08-16 14:46:20,entregado,Moto-01 Felipe,app,23487.08
+228,Tomas Beltran,Centro,2026-08-21 18:38:20,2026-08-21 19:08:20,entregado,Bici-03 Nicolas,efectivo,71046.28
+229,Julia Pena,Sur,2026-08-05 13:39:20,,pendiente,,tarjeta,87140.42
+230,Ivan Rojas,Norte,2026-07-30 07:14:20,2026-07-30 08:22:20,entregado,Bici-01 Andres,tarjeta,85424.27
+231,Ivan Rojas,Centro,2026-07-26 00:28:20,2026-07-26 01:11:20,entregado,Moto-01 Felipe,tarjeta,94545.6
+232,Laura Vega,Norte,2026-07-24 21:05:20,2026-07-24 22:20:20,entregado,Moto-01 Felipe,efectivo,23420.77
+233,Paula Leon,Occidente,2026-08-24 06:35:20,2026-08-24 06:52:20,entregado,Bici-01 Andres,app,12435.85
+234,Tomas Beltran,Sur,2026-08-04 05:50:20,,en_camino,Moto-02 Sara,app,62537.05
+235,Kevin Silva,Sur,2026-07-28 15:44:20,2026-07-28 16:57:20,entregado,Moto-02 Sara,efectivo,15963.2
+236,Wilson Prieto,Occidente,2026-07-26 10:54:20,,pendiente,,app,13364.13
+237,Kevin Silva,Sur,2026-08-16 01:13:20,2026-08-16 01:58:20,entregado,Moto-01 Felipe,tarjeta,12129.84
+238,Sofia Marin,Norte,2026-08-18 13:37:20,2026-08-18 15:01:20,entregado,Bici-03 Nicolas,tarjeta,17617.38
+239,Tomas Beltran,Chapinero,2026-08-15 16:26:20,2026-08-15 16:46:20,entregado,Moto-02 Sara,efectivo,44407.66
+240,Julia Pena,Centro,2026-08-21 12:37:20,2026-08-21 13:36:20,entregado,Bici-01 Andres,app,13348.11
+241,Valentina Cano,Norte,2026-08-03 13:40:20,2026-08-03 14:00:20,entregado,Bici-02 Camila,app,74804.35
+242,Paula Leon,Sur,2026-08-08 15:06:20,2026-08-08 15:38:20,entregado,Bici-02 Camila,app,51718.09
+243,Carlos Ruiz,Occidente,2026-07-26 11:13:20,2026-07-26 11:33:20,entregado,Bici-02 Camila,tarjeta,28732.05
+244,Natalia Rios,Chapinero,2026-08-06 23:00:20,,cancelado,,app,51292.18
+245,Kevin Silva,Sur,2026-07-25 06:17:20,2026-07-25 07:14:20,entregado,Bici-01 Andres,tarjeta,83557.5
+246,Oscar Parra,Centro,2026-08-05 00:43:20,,pendiente,,tarjeta,73694.54
+247,Ricardo Salas,Sur,2026-08-10 04:37:20,2026-08-10 05:26:20,entregado,Bici-03 Nicolas,app,53294.44
+248,Oscar Parra,Norte,2026-07-27 08:32:20,2026-07-27 09:56:20,entregado,Bici-02 Camila,app,94593.15
+249,Laura Vega,Norte,2026-08-05 23:10:20,2026-08-06 00:19:20,entregado,Moto-02 Sara,app,36538.12
+250,Paula Leon,Centro,2026-07-31 04:19:20,2026-07-31 05:29:20,entregado,Moto-01 Felipe,efectivo,72325.59
+251,Diana Torres,Norte,2026-08-05 02:11:20,2026-08-05 03:31:20,entregado,Moto-01 Felipe,app,64913.54
+252,Fernanda Diaz,Norte,2026-08-26 17:23:20,2026-08-26 17:42:20,entregado,Moto-02 Sara,app,68281.38
+253,Mateo Nunez,Centro,2026-07-29 08:10:20,,pendiente,,tarjeta,90805.77
+254,Mateo Nunez,Occidente,2026-07-25 01:40:20,2026-07-25 03:08:20,entregado,Bici-01 Andres,tarjeta,48846.96
+255,Laura Vega,Occidente,2026-07-29 20:41:20,2026-07-29 20:59:20,entregado,Bici-01 Andres,app,35131.25
+256,Natalia Rios,Chapinero,2026-08-26 01:51:20,,en_camino,Moto-01 Felipe,app,21774.16
+257,Kevin Silva,Chapinero,2026-08-24 15:17:20,2026-08-24 15:57:20,entregado,Moto-02 Sara,app,88067.75
+258,Paula Leon,Norte,2026-07-29 04:15:20,,pendiente,,efectivo,86590.36
+259,Mateo Nunez,Centro,2026-08-12 20:28:20,,cancelado,,app,17389.94
+260,Gabriel Mora,Centro,2026-08-17 06:29:20,,en_camino,Moto-03 Daniela,app,70893.79
