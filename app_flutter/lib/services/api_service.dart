@@ -4,14 +4,16 @@ import "package:http/http.dart" as http;
 
 import "../config.dart";
 import "../models/pedido.dart";
+import "../session.dart";
 
 class ApiService {
   final String baseUrl = Config.apiBaseUrl;
 
   Map<String, String> _headers() {
     final headers = {"Content-Type": "application/json"};
-    if (Config.apiKey.isNotEmpty) {
-      headers["X-API-Key"] = Config.apiKey;
+    final apiKey = Session.apiKey.isNotEmpty ? Session.apiKey : Config.apiKey;
+    if (apiKey.isNotEmpty) {
+      headers["X-API-Key"] = apiKey;
     }
     return headers;
   }

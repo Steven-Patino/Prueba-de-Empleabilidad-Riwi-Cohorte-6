@@ -4,7 +4,7 @@
 End-to-end solution that replaces EcoDelivery's spreadsheet-based order tracking with a
 real system: a **REST API** with real persistence, a **daily ETL pipeline** orchestrated
 with **Apache Airflow**, and a **Flutter** mobile app that consumes the API. The Power BI
-dashboard is built separately from the pipeline output.
+dashboard is under development and consumes the pipeline output.
 
 EcoDelivery is a fictional eco-friendly delivery startup (bikes and electric motorbikes)
 operating in five city zones: **Norte, Sur, Centro, Occidente, Chapinero**.
@@ -114,19 +114,23 @@ Prueba De Empleabilidad/
 │   ├── .env.example
 │   ├── README.md               # per-target run instructions
 │   └── lib/
-│       ├── main.dart
+│       ├── main.dart           # providers + login/list routing
 │       ├── config.dart         # API base URL from --dart-define
+│       ├── session.dart        # in-memory session (username + API key)
 │       ├── estado_helpers.dart # status colors, next-status logic, dropdown option lists
 │       ├── models/pedido.dart
 │       ├── services/api_service.dart   # real GET/POST/PATCH calls
-│       ├── state/pedidos_provider.dart # loading / error / loaded states
+│       ├── state/
+│       │   ├── auth_provider.dart      # login / logout
+│       │   └── pedidos_provider.dart   # loading / error / loaded states
 │       └── screens/
-│           ├── pedidos_list_screen.dart   # list + filters + pull-to-refresh
+│           ├── login_screen.dart          # username + optional API key
+│           ├── pedidos_list_screen.dart   # list + filters + pull-to-refresh + logout
 │           ├── pedido_detail_screen.dart  # detail + advance-status button
 │           └── crear_pedido_screen.dart   # validated create form
 │
 ├── powerbi/
-│   └── README.md               # MODULE 4 — data contract for the dashboard (built separately)
+│   └── README.md               # MODULE 4 — data contract for the dashboard (in development)
 │
 └── data/                       # shared volume; the ETL writes reporte_pedidos.csv here
     └── .gitkeep
@@ -356,9 +360,9 @@ docker compose exec airflow-scheduler airflow dags list-import-errors
 
 ## Module 4 — Dashboard (Power BI)
 
-Built separately from the pipeline output. `powerbi/README.md` documents the source file
-(`data/reporte_pedidos.csv`), its columns, and the required visuals / slicer / DAX
-measure.
+Under development. It consumes the pipeline output `data/reporte_pedidos.csv`.
+`powerbi/README.md` documents the source file, its columns, and the required visuals /
+slicer / DAX measure so the report can be built against a stable data contract.
 
 ---
 
@@ -376,9 +380,9 @@ flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000
 `10.0.2.2` is how the Android emulator reaches the host. Use `http://localhost:8000` for
 Chrome or the iOS simulator; use `http://<your-pc-ip>:8000` from a physical phone.
 
-Screens: orders list (filter by status/zone, colored status chip, pull-to-refresh),
-order detail (advance-status button), create order (validated form). Every screen calls
-the API — no hard-coded data.
+Screens: login (username + optional API key), orders list (filter by status/zone, colored
+status chip, pull-to-refresh, logout), order detail (advance-status button), create order
+(validated form). Every screen calls the API — no hard-coded data.
 
 ---
 
@@ -445,16 +449,18 @@ docker compose build --no-cache && docker compose up -d
 - **Airflow**: 2.10.5 + LocalExecutor — a stable release, not the newest 3.x line.
 - **Flutter app not containerized**: a mobile app does not run usefully in Docker; it is
   delivered as source and run on the host against the dockerized API.
-- **Power BI**: not built here; the data contract is documented in `powerbi/`.
-- **Auth (extra)**: optional `X-API-Key` on writes, shipped disabled.
-- **Flutter login screen (optional extra)**: not implemented. Pull-to-refresh (the other
-  optional item) is implemented.
+- **Power BI**: under development; it consumes `data/reporte_pedidos.csv` and the data
+  contract for it is documented in `powerbi/`.
+- **Auth (extra)**: optional `X-API-Key` on writes, shipped disabled. Implemented.
+- **Flutter optional extras**: login screen and pull-to-refresh — both implemented.
 - **Timestamps** are stored in UTC.
 - **Seed data** was generated because none was provided; its schema matches the model.
 
-### Left incomplete on purpose
+### Status by module
 
-- Power BI `.pbix` (module 4) — handed over with a documented data source.
+- Modules 1–3 (Flutter app, REST API, Airflow ETL): complete and running.
+- Module 4 (Power BI dashboard): in progress, building on the `reporte_pedidos.csv`
+  produced by module 3.
 - Flutter platform folders are not committed — `flutter create .` regenerates them.
 - No Alembic migrations — tables are created from the SQLAlchemy models on startup, which
   is enough for this scope.

@@ -3,6 +3,7 @@ import "package:provider/provider.dart";
 
 import "../estado_helpers.dart";
 import "../models/pedido.dart";
+import "../state/auth_provider.dart";
 import "../state/pedidos_provider.dart";
 import "crear_pedido_screen.dart";
 import "pedido_detail_screen.dart";
@@ -13,9 +14,19 @@ class PedidosListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<PedidosProvider>();
+    final usuario = context.watch<AuthProvider>().usuario;
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Pedidos EcoDelivery")),
+      appBar: AppBar(
+        title: Text("Pedidos - $usuario"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: "Cerrar sesion",
+            onPressed: () => context.read<AuthProvider>().logout(),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(

@@ -1,7 +1,8 @@
 # Power BI dashboard
 
-This module is left for the reviewer / analyst to build. Everything it needs is produced
-by the other modules.
+This module is under development. Everything it needs is already produced by the other
+modules; this file is the data contract the report is being built against. The `.pbix`
+(or screenshots + the data file) will land in this folder.
 
 ## Data source
 
