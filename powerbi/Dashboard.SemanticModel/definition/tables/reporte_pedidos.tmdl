@@ -1,0 +1,50 @@
+table reporte_pedidos
+	lineageTag: 279c8b67-e84a-41bb-b44d-f547431170d9
+
+	/// Ingresos por zona tomados del reporte del pipeline (modulo Airflow).
+	measure 'Ingresos (pipeline)' = CALCULATE ( SUM ( reporte_pedidos[valor] ), reporte_pedidos[metrica] = "ingresos_totales" )
+		formatString: \$#,##0
+		displayFolder: Medidas pipeline
+		lineageTag: 7651715b-ae55-46fe-8ff3-fc463aff76f5
+
+	measure 'Cantidad Pedidos (pipeline)' = CALCULATE ( SUM ( reporte_pedidos[valor] ), reporte_pedidos[metrica] = "cantidad_pedidos" )
+		formatString: #,##0
+		displayFolder: Medidas pipeline
+		lineageTag: 2ad1be2f-58dd-4edf-b01d-04ab8a67ae21
+
+	/// Promedio (no ponderado) del tiempo de entrega por zona segun el pipeline.
+	measure 'Tiempo Prom Entrega pipeline (min)' = CALCULATE ( AVERAGE ( reporte_pedidos[valor] ), reporte_pedidos[metrica] = "tiempo_promedio_entrega_min" )
+		formatString: 0.0
+		displayFolder: Medidas pipeline
+		lineageTag: 0512f307-0396-48dc-8ce5-250af5b5406e
+
+	column metrica
+		dataType: string
+		lineageTag: 721c9d48-3450-4efe-bd94-bd96561898d2
+		sourceColumn: metrica
+
+	column dimension
+		dataType: string
+		lineageTag: cc2e7308-9301-478d-90a7-ed2159921d79
+		sourceColumn: dimension
+
+	column valor
+		dataType: double
+		lineageTag: c4e4309b-cda3-4b18-9ef3-258d04000753
+		sourceColumn: valor
+
+	column fecha_reporte
+		dataType: dateTime
+		lineageTag: 07ceb95a-6e52-407a-9f41-76a4bd9df686
+		sourceColumn: fecha_reporte
+
+	partition reporte_pedidos = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Steven\Desktop\Complementos\Prueba De Empleabilidad\data\reporte_pedidos.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"metrica", type text}, {"dimension", type text}, {"valor", type number}, {"fecha_reporte", type date}}, "en-US")
+				in
+				    Typed
+

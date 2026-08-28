@@ -2,9 +2,9 @@
 ### FastAPI + Apache Airflow (LocalExecutor) + PostgreSQL + Flutter
 
 End-to-end solution that replaces EcoDelivery's spreadsheet-based order tracking with a
-real system: a **REST API** with real persistence, a **daily ETL pipeline** orchestrated
-with **Apache Airflow**, and a **Flutter** mobile app that consumes the API. The Power BI
-dashboard is under development and consumes the pipeline output.
+real system: a **Flutter** mobile app, a **REST API** with real persistence, a **daily
+ETL pipeline** orchestrated with **Apache Airflow**, and a **Power BI** dashboard built on
+the pipeline output. All four modules are complete.
 
 EcoDelivery is a fictional eco-friendly delivery startup (bikes and electric motorbikes)
 operating in five city zones: **Norte, Sur, Centro, Occidente, Chapinero**.
@@ -49,7 +49,13 @@ The project is operational end to end with this architecture:
   with `409`).
 - Optional `X-API-Key` on write endpoints, **shipped disabled** so nothing needs
   configuring to run.
-- Everything (except the Flutter app) runs with a single `docker compose up --build`.
+- **Power BI** dashboard delivered as a PBIP project (`powerbi/Dashboard.pbip`): two model
+  tables, 12 custom DAX measures, and a report page with a KPI card, a slicer and four
+  charts (bar / line / column). PBIR validated with `powerbi-report-author validate`
+  (0 errors, 0 warnings).
+- Everything except the Flutter app and Power BI Desktop runs with a single
+  `docker compose up --build`. A full end-to-end run (fresh build → API assertion battery →
+  pytest → ETL cross-check → DAG fallback) passes.
 
 ---
 
@@ -59,12 +65,15 @@ The project is operational end to end with this architecture:
 |---|---|---|
 | Docker Desktop | 4.x | `docker --version` |
 | Docker Compose | v2.1+ | `docker compose version` |
-| Flutter SDK *(only for the mobile app)* | 3.x stable | `flutter --version` |
+| Flutter SDK *(only for module 1)* | 3.x stable | `flutter --version` |
+| Power BI Desktop *(only to open module 4)* | current | — |
 
 > Python, FastAPI, Airflow and PostgreSQL are **not** required on the host — they all run
-> inside containers. Flutter is only needed to run module 1.
+> inside containers. Flutter is only needed for module 1, Power BI Desktop only for
+> module 4.
 
-Host ports used: `8000` (API), `8080` (Airflow UI), `5432` (PostgreSQL).
+Host ports used: `8010` (API, set by `API_HOST_PORT`) and `8080` (Airflow UI). PostgreSQL stays on the internal
+Docker network (not published to the host).
 
 ---
 
@@ -129,8 +138,11 @@ Prueba De Empleabilidad/
 │           ├── pedido_detail_screen.dart  # detail + advance-status button
 │           └── crear_pedido_screen.dart   # validated create form
 │
-├── powerbi/
-│   └── README.md               # MODULE 4 — data contract for the dashboard (in development)
+├── powerbi/                    # MODULE 4 — Power BI dashboard (PBIP project)
+│   ├── README.md               # data contract + what was built
+│   ├── Dashboard.pbip          # project manifest — open this in Power BI Desktop
+│   ├── Dashboard.Report/       # report definition (PBIR): page + KPI card + slicer + 4 charts
+│   └── Dashboard.SemanticModel/ # model in TMDL: pedidos + reporte_pedidos tables, 12 measures
 │
 └── data/                       # shared volume; the ETL writes reporte_pedidos.csv here
     └── .gitkeep
@@ -193,8 +205,8 @@ pruebadeempleabilidad-airflow-scheduler-1   Up
 
 | Service | URL | Credentials |
 |---|---|---|
-| REST API | http://localhost:8000 | — |
-| API docs (Swagger) | http://localhost:8000/docs | — |
+| REST API | http://localhost:8010 | — |
+| API docs (Swagger) | http://localhost:8010/docs | — |
 | Airflow UI | http://localhost:8080 | `admin` / `admin` |
 
 ### Step 3 — Run the pipeline
@@ -214,7 +226,7 @@ docker compose exec airflow-scheduler airflow dags test etl_pedidos_diario 2025-
 
 ```bash
 # API returns seeded orders
-curl http://localhost:8000/pedidos
+curl http://localhost:8010/pedidos
 
 # the ETL produced the report
 cat data/reporte_pedidos.csv
@@ -264,13 +276,13 @@ returns HTTP `409`.
 ### Try it
 
 ```bash
-curl "http://localhost:8000/pedidos?estado=entregado&zona=Norte"
+curl "http://localhost:8010/pedidos?estado=entregado&zona=Norte"
 
-curl -X POST http://localhost:8000/pedidos \
+curl -X POST http://localhost:8010/pedidos \
   -H "Content-Type: application/json" \
   -d '{"cliente":"Ana Gomez","zona":"Norte","metodo_pago":"efectivo","monto":25000}'
 
-curl -X PATCH http://localhost:8000/pedidos/1/estado \
+curl -X PATCH http://localhost:8010/pedidos/1/estado \
   -H "Content-Type: application/json" \
   -d '{"estado":"en_camino"}'
 ```
@@ -290,7 +302,7 @@ source .venv/bin/activate            # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 export DATABASE_URL="sqlite:///./ecodelivery.db"
 export SEED_CSV_PATH="../dataset_pedidos_semilla.csv"
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --port 8010
 ```
 
 ### Tests
@@ -360,9 +372,21 @@ docker compose exec airflow-scheduler airflow dags list-import-errors
 
 ## Module 4 — Dashboard (Power BI)
 
-Under development. It consumes the pipeline output `data/reporte_pedidos.csv`.
-`powerbi/README.md` documents the source file, its columns, and the required visuals /
-slicer / DAX measure so the report can be built against a stable data contract.
+Delivered as a **PBIP project** in `powerbi/` — open `powerbi/Dashboard.pbip` in Power BI
+Desktop.
+
+- **Model** (`Dashboard.SemanticModel/`, TMDL): two Import tables — `pedidos` (per-order,
+  from `dataset_pedidos_semilla.csv`, with calc columns `Fecha` and `minutos_entrega`) and
+  `reporte_pedidos` (the ETL output). 12 custom DAX measures (Ingreso Total, Ticket
+  Promedio, % Entregados, Tiempo Promedio Entrega (min), …).
+- **Report** (`Dashboard.Report/`, PBIR): one page "Operación EcoDelivery" with a title, a
+  multi-value KPI card, a `zona` slicer, and four charts — Ingresos por zona (column),
+  Pedidos por día (line), Pedidos por estado (column), Tiempo promedio de entrega por zona
+  (bar). Validated with `powerbi-report-author validate` → 0 errors, 0 warnings.
+
+Covers the assessment minimums: ≥3 visuals, a KPI card, ≥1 slicer, and custom DAX
+measures. `powerbi/README.md` has the full breakdown and the `reporte_pedidos.csv` column
+contract.
 
 ---
 
@@ -374,11 +398,11 @@ Full instructions in `app_flutter/README.md`. Short version:
 cd app_flutter
 flutter create .        # generates android/ios/web folders the first time
 flutter pub get
-flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000
+flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8010
 ```
 
-`10.0.2.2` is how the Android emulator reaches the host. Use `http://localhost:8000` for
-Chrome or the iOS simulator; use `http://<your-pc-ip>:8000` from a physical phone.
+`10.0.2.2` is how the Android emulator reaches the host. Use `http://localhost:8010` for
+Chrome or the iOS simulator; use `http://<your-pc-ip>:8010` from a physical phone.
 
 Screens: login (username + optional API key), orders list (filter by status/zone, colored
 status chip, pull-to-refresh, logout), order detail (advance-status button), create order
@@ -430,8 +454,8 @@ then `docker compose up`.
 DAG still succeeds. To force the live path, make sure the `backend` container is `healthy`
 (`docker compose ps`).
 
-**Port already in use (8000 / 8080 / 5432)** — stop the process using it or change the
-left side of the port mapping in `docker-compose.yml`.
+**Port already in use (8010 / 8080)** — stop the process using it or change the left side
+of the port mapping in `docker-compose.yml`.
 
 **Rebuild from scratch, no cache:**
 ```bash
@@ -449,18 +473,25 @@ docker compose build --no-cache && docker compose up -d
 - **Airflow**: 2.10.5 + LocalExecutor — a stable release, not the newest 3.x line.
 - **Flutter app not containerized**: a mobile app does not run usefully in Docker; it is
   delivered as source and run on the host against the dockerized API.
-- **Power BI**: under development; it consumes `data/reporte_pedidos.csv` and the data
-  contract for it is documented in `powerbi/`.
+- **Power BI**: PBIP project in `powerbi/`. Model authored via the Power BI Modeling MCP,
+  report page via the `powerbi-report-author` CLI; PBIR validated. Two model tables
+  (`pedidos` per-order + `reporte_pedidos` from the ETL) so the "orders per day" chart has
+  daily granularity that the aggregated report alone cannot provide.
 - **Auth (extra)**: optional `X-API-Key` on writes, shipped disabled. Implemented.
 - **Flutter optional extras**: login screen and pull-to-refresh — both implemented.
-- **Timestamps** are stored in UTC.
+- **Timestamps** are stored in UTC. The ETL parses them with `format="ISO8601"` so both
+  seed timestamps (no microseconds) and API-created ones (with microseconds) load.
 - **Seed data** was generated because none was provided; its schema matches the model.
 
 ### Status by module
 
-- Modules 1–3 (Flutter app, REST API, Airflow ETL): complete and running.
-- Module 4 (Power BI dashboard): in progress, building on the `reporte_pedidos.csv`
-  produced by module 3.
+- Module 1 — Flutter app: complete (3 screens + login, real API calls, loading/error
+  states, filters, pull-to-refresh).
+- Module 2 — REST API: complete. 10 pytest cases pass; validated end-to-end.
+- Module 3 — Airflow ETL: complete. DAG runs; output cross-checked against an independent
+  recomputation from the API; CSV fallback verified.
+- Module 4 — Power BI: complete. PBIP project, model + 12 measures + report page, PBIR
+  validated (0 errors).
 - Flutter platform folders are not committed — `flutter create .` regenerates them.
 - No Alembic migrations — tables are created from the SQLAlchemy models on startup, which
   is enough for this scope.

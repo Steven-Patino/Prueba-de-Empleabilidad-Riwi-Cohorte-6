@@ -41,8 +41,12 @@ def transform():
 
     df = pd.DataFrame(pedidos)
     df["monto"] = pd.to_numeric(df["monto"], errors="coerce")
-    df["fecha_creacion"] = pd.to_datetime(df["fecha_creacion"], errors="coerce")
-    df["fecha_entrega"] = pd.to_datetime(df["fecha_entrega"], errors="coerce")
+    df["fecha_creacion"] = pd.to_datetime(
+        df["fecha_creacion"], format="ISO8601", errors="coerce"
+    )
+    df["fecha_entrega"] = pd.to_datetime(
+        df["fecha_entrega"], format="ISO8601", errors="coerce"
+    )
 
     entregados = df[df["estado"] == "entregado"].copy()
     entregados["minutos_entrega"] = (

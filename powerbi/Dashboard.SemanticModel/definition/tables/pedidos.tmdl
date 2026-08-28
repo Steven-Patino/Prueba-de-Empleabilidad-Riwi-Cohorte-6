@@ -1,0 +1,125 @@
+table pedidos
+	lineageTag: c6070855-dd04-4ccf-a4c4-4d4ff729fbb4
+
+	/// Suma del monto de todos los pedidos en el contexto actual.
+	measure 'Ingreso Total' = SUM ( pedidos[monto] )
+		formatString: \$#,##0
+		displayFolder: Medidas
+		lineageTag: dbacb4ee-c7ef-41c2-8112-94d0e1c3e2db
+
+	/// Numero de pedidos en el contexto actual.
+	measure Pedidos = COUNTROWS ( pedidos )
+		formatString: #,##0
+		displayFolder: Medidas
+		lineageTag: f53390a0-10ff-4816-a799-b161f6e59190
+
+	/// Ingreso Total dividido entre la cantidad de pedidos.
+	measure 'Ticket Promedio' = DIVIDE ( [Ingreso Total], [Pedidos] )
+		formatString: \$#,##0
+		displayFolder: Medidas
+		lineageTag: 1844569a-03b0-4cfe-a446-c39f682c0801
+
+	measure 'Pedidos Entregados' = CALCULATE ( [Pedidos], pedidos[estado] = "entregado" )
+		formatString: #,##0
+		displayFolder: Medidas
+		lineageTag: 0db12aad-f19a-4547-a2a6-2c1fe6200f01
+
+	/// Proporcion de pedidos en estado entregado.
+	measure '% Entregados' = DIVIDE ( [Pedidos Entregados], [Pedidos] )
+		formatString: 0.0%
+		displayFolder: Medidas
+		lineageTag: a55b45bf-5342-4498-a96d-33060573d088
+
+	measure 'Pedidos Cancelados' = CALCULATE ( [Pedidos], pedidos[estado] = "cancelado" )
+		formatString: #,##0
+		displayFolder: Medidas
+		lineageTag: d7188c00-807f-4349-8cfe-13208c6f4095
+
+	/// Proporcion de pedidos cancelados.
+	measure '% Cancelados' = DIVIDE ( [Pedidos Cancelados], [Pedidos] )
+		formatString: 0.0%
+		displayFolder: Medidas
+		lineageTag: be475575-c267-412e-a8ab-f5510bf33236
+
+	/// Ingreso Total excluyendo los pedidos cancelados.
+	measure 'Ingreso Neto sin Cancelados' = CALCULATE ( [Ingreso Total], pedidos[estado] <> "cancelado" )
+		formatString: \$#,##0
+		displayFolder: Medidas
+		lineageTag: 74134539-1659-4a08-a141-d10c7f21f8e4
+
+	/// Promedio de minutos entre fecha_creacion y fecha_entrega, solo pedidos entregados.
+	measure 'Tiempo Promedio Entrega (min)' = CALCULATE ( AVERAGE ( pedidos[minutos_entrega] ), pedidos[estado] = "entregado" )
+		formatString: 0.0
+		displayFolder: Medidas
+		lineageTag: e0fad4f6-7b4c-4aa8-bcae-7f99b4637503
+
+	column id_pedido
+		dataType: int64
+		lineageTag: 5ec02077-e430-4a6d-a887-eb427edb8f45
+		sourceColumn: id_pedido
+
+	column cliente
+		dataType: string
+		lineageTag: 13d27871-ceda-4e57-ba1a-e20bb21230fb
+		sourceColumn: cliente
+
+	column zona
+		dataType: string
+		lineageTag: c1904ed2-d3c8-45fd-8ab9-e95409a931ee
+		sourceColumn: zona
+
+	column fecha_creacion
+		dataType: dateTime
+		lineageTag: d337e8e5-a78e-47d0-9e93-0114b5846394
+		sourceColumn: fecha_creacion
+
+	column fecha_entrega
+		dataType: dateTime
+		lineageTag: 91ed49c4-1e54-4169-99a8-37d08b00612d
+		sourceColumn: fecha_entrega
+
+	column estado
+		dataType: string
+		lineageTag: dbcb8b9d-880a-4757-8f52-499899b8e6be
+		sourceColumn: estado
+
+	column repartidor
+		dataType: string
+		lineageTag: 6d5959c0-59aa-4450-986b-850d10c593d8
+		sourceColumn: repartidor
+
+	column metodo_pago
+		dataType: string
+		lineageTag: f40c9c1b-c5f4-421b-a294-d2afae3fb54d
+		sourceColumn: metodo_pago
+
+	column monto
+		dataType: double
+		lineageTag: c99b7089-dc1b-4d9b-90f9-159f0d0886eb
+		sourceColumn: monto
+
+	column Fecha
+		dataType: dateTime
+		lineageTag: 307a613a-1fc3-4787-bdec-39c540ed3b47
+		summarizeBy: none
+		sourceColumn: Fecha
+
+	column minutos_entrega
+		dataType: double
+		isHidden
+		lineageTag: 6524f927-e73f-498c-8ee1-90827d12a463
+		summarizeBy: none
+		sourceColumn: minutos_entrega
+
+	partition pedidos = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Steven\Desktop\Complementos\Prueba De Empleabilidad\dataset_pedidos_semilla.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted,{{"id_pedido", Int64.Type}, {"cliente", type text}, {"zona", type text}, {"fecha_creacion", type datetime}, {"fecha_entrega", type datetime}, {"estado", type text}, {"repartidor", type text}, {"metodo_pago", type text}, {"monto", type number}}, "en-US"),
+				    ConFecha = Table.AddColumn(Typed, "Fecha", each Date.From([fecha_creacion]), type date),
+				    ConMinutos = Table.AddColumn(ConFecha, "minutos_entrega", each if [fecha_entrega] = null then null else Duration.TotalMinutes([fecha_entrega] - [fecha_creacion]), type number)
+				in
+				    ConMinutos
+

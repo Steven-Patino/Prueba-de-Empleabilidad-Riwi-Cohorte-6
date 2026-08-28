@@ -2,6 +2,7 @@
 
 sustentacion_tecnica.md
 como_power_bi.md
+.mcp.json
 
 backend/.venv/
 backend/*.db
