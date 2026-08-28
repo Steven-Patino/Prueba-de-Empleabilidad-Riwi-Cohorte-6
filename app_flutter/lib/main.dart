@@ -5,6 +5,7 @@ import "screens/login_screen.dart";
 import "screens/pedidos_list_screen.dart";
 import "state/auth_provider.dart";
 import "state/pedidos_provider.dart";
+import "theme.dart";
 
 void main() {
   runApp(const EcoDeliveryApp());
@@ -22,10 +23,8 @@ class EcoDeliveryApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: "EcoDelivery",
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-          useMaterial3: true,
-        ),
+        debugShowCheckedModeBanner: false,
+        theme: construirTema(),
         home: const RootScreen(),
       ),
     );
@@ -38,9 +37,23 @@ class RootScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<AuthProvider>();
-    if (auth.isLoggedIn) {
-      return const PedidosListScreen();
-    }
-    return const LoginScreen();
+
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 450),
+      switchInCurve: Curves.easeOutCubic,
+      switchOutCurve: Curves.easeIn,
+      transitionBuilder: (child, animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 0.97, end: 1).animate(animation),
+            child: child,
+          ),
+        );
+      },
+      child: auth.isLoggedIn
+          ? const PedidosListScreen(key: ValueKey("lista"))
+          : const LoginScreen(key: ValueKey("login")),
+    );
   }
 }
